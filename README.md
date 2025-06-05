@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 ## Running Experiments
 
-We provide an example on the GMM (Gaussian Mixture Model) target distribution. This includes three main stages:
+We provide an example on the GMM task. This includes three main stages:
 
 ### 1. Simulate Parallel Tempering (PT)
 
@@ -31,7 +31,7 @@ Run parallel tempering to generate initial samples, saved to `data/pt/pt_gmm.pt`
 python run.py --config-name=pt_gmm
 ```
 
-### 2. Train PT+DM (Diffusion Matching)
+### 2. Train PT+DM
 
 Train a diffusion model using the PT samples:
 
@@ -39,8 +39,7 @@ Train a diffusion model using the PT samples:
 python run.py --config-name=gmm prefix="ptdm"
 ```
 
-### 3. Train PTSD (Progressive Tempering Sampler with Diffusion)
-
+### 3. Train PTSD
 Train the full PTSD framework using both PT and DM:
 
 ```bash
