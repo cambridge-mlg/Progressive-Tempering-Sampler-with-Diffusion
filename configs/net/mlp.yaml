@@ -1,0 +1,6 @@
+_target_: ptsd.net.model.MLP
+in_dim: 2
+hidden_dims: 256
+t_embed_dim: 128
+n_layers: 3
+skip_connect: true

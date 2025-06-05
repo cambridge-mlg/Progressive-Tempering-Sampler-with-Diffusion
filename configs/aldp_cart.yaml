@@ -1,0 +1,79 @@
+defaults:
+  - net: egnn_aldp
+  - target: aldp_cart
+  - logger: wandb  # set "null" for no logging
+
+dim: 66
+name: "aldp_cart"
+device: "cuda"
+seed: 42
+
+target:
+  device: ${device}
+
+temp_low: 1.0
+temp_high: 5.0
+total_n_temp: 10
+temp_schedule: "geom"  # or "linear"
+all_temps: null
+
+bsz: 1000
+init_Epochs: 20000
+Epochs: 20000
+learning_rate: 1e-3
+max_grad_norm: 1.0
+normalization: 1.0
+adaptive_data_sigma: False
+weight_decay: 0.0
+
+# PTDM params
+max_samples_to_consider: 100000000
+warmup_steps: 10000
+data_path: "data/aldp/pt.pt"
+
+num_chains: 100
+BUFFER_MAX_SIZE: 100000
+num_dm_samples: 100000
+TRAINING_SET_SIZE: 100000
+
+num_samples_to_generate_per_batch: 2000
+load_init_buffer: False
+swap_buffer_interval: 100
+init_LG_steps: 110000
+init_num_chains: 100
+init_num_abundance: 10000
+init_LG_pick_interval: 100
+LG_steps: 1000
+num_abundance: 999
+num_init_chains: 100
+
+LG_pick_interval: 1
+LG_step_size: 0.0001
+
+importance_resample: True  # set this True for using IS-resampling
+is_integration_steps: 1000
+is_weight_max_quantile: 0.985
+is_last_step: False
+
+tmin: 0.001
+tmax: 40.0
+
+num_plot_samples: 100000  #  number of samples shown in the plots
+plot_fold: "plots/plot_${name}"
+
+model_save_path: "checkpoints/ptsd_${name}"
+init_samples_path: ""
+
+# For GT+DM
+check_interval: 10000
+num_val_samples: 1000
+num_test_samples: 10000
+num_metric_samples: 10000
+
+hidden_dims: None
+t_embed_dims: None
+n_layers: None
+
+num_eval_samples: 1000000
+use_wandb: True
+use_data_parallel: True

@@ -1,0 +1,4 @@
+_target_: ptsd.targets.many_well.ManyWellPotential
+
+dim: 32
+device: "cpu"

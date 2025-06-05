@@ -1,0 +1,81 @@
+defaults:
+  - net: mlp
+  - target: mw32
+  - logger: wandb  # set "null" for no logging
+
+dim: ${target.dim}
+name: "mw32"
+device: "cuda"
+seed: 42
+
+target:
+  device: ${device}
+
+net:
+  in_dim: ${dim}
+  hidden_dims: 256
+  t_embed_dim: 128
+  n_layers: 5
+  skip_connect: true
+
+temp_low: 1.0
+temp_high: 10.0
+total_n_temp: 10
+temp_schedule: "geom"  # or "linear"
+all_temps: null
+
+bsz: 1000
+init_Epochs: 20000
+Epochs: 20000
+learning_rate: 1e-3
+max_grad_norm: 1.0
+normalization: 1.0
+adaptive_data_sigma: False
+
+load_init_buffer: False
+BUFFER_MAX_SIZE: 12000
+TRAINING_SET_SIZE: 12000
+num_samples_to_generate_per_batch: 1000
+swap_buffer_interval: 5
+init_LG_steps: 20000
+init_num_chains: 12
+init_num_abundance: 10000
+init_LG_pick_interval: 10
+LG_steps: 25
+num_abundance: 24
+LG_pick_interval: 1
+LG_step_size: 0.001
+
+num_chains: 12000
+num_dm_samples: 12000
+
+importance_resample: True  # set this True for using IS-resampling
+is_integration_steps: 2000
+is_weight_max_quantile: 0.985
+is_last_step: False
+
+tmin: 0.001
+tmax: 40.0
+
+num_plot_samples: 1000  #  number of samples shown in the plots
+plot_fold: "plots/plot_${name}"
+
+model_save_path: "checkpoints/ptsd_${name}"
+
+hidden_dims: None
+t_embed_dims: None
+n_layers: None
+
+use_wandb: true
+num_eval_samples: 10000
+use_data_parallel: True
+
+# PTDM params
+max_samples_to_consider: 800000
+warmup_steps: 10000
+data_path: "data/pt_mw32.pt"
+# For GT+DM
+check_interval: 10000
+num_val_samples: 1000
+num_test_samples: 10000
+num_metric_samples: 10000

@@ -1,0 +1,8 @@
+_target_: ptsd.net.model.EGNN
+in_dim: 165
+hidden_dims: 128
+n_layers: 3
+t_embed_dims: 128
+n_particles: 55
+n_dimensions: 3
+skip_connect: true

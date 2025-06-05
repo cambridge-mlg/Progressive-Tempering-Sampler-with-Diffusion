@@ -1,0 +1,90 @@
+defaults:
+  - net: egnn
+  - target: lj55
+  - logger: wandb  # set "null" for no logging
+
+logger:
+  project: "lj55"
+
+dim: ${target.dim}
+name: "lj55"
+device: "cuda"
+seed: 42
+
+target:
+  device: ${device}
+
+net:
+  in_dim: ${dim}
+  n_particles: 55
+  n_dimensions: 3
+  hidden_dims: 128
+  t_embed_dims: 128
+  n_layers: 3
+  skip_connect: true
+
+temp_low: 1.0
+temp_high: 3.0
+total_n_temp: 3
+temp_schedule: "geom"  # or "linear"
+all_temps: null
+
+bsz: 1000
+init_Epochs: 15000
+Epochs: 15000
+learning_rate: 1e-3
+max_grad_norm: 1.0
+normalization: 1.0
+adaptive_data_sigma: False
+
+num_samples_to_generate_per_batch: 5000  # number of samples to generate per batch,
+                                         # it returns BUFFER_MAX_SIZE//num_samples_to_generate_per_batch iterations to generete all samples
+load_init_buffer: False
+swap_buffer_interval: 5
+init_LG_steps: 40000
+init_num_chains: 1
+init_num_abundance: 5000
+init_LG_pick_interval: 1
+LG_step_size: 0.0001
+
+num_chains: 10000
+num_dm_samples: 10000
+BUFFER_MAX_SIZE: 10000
+TRAINING_SET_SIZE: 10000
+LG_steps: 5
+num_abundance: 4
+LG_pick_interval: 1
+
+importance_resample: True  # set this True for using IS-resampling
+is_integration_steps: 1000
+is_weight_max_quantile: 0.985
+is_last_step: true
+
+tmin: 0.001
+tmax: 40.0
+
+num_plot_samples: 1000  #  number of samples shown in the plots
+plot_fold: "plots/plot_${name}"
+min_inter_dist: 0
+max_inter_dist: 9
+
+model_save_path: "checkpoints/ptsd_${name}"
+
+hidden_dims: 128
+t_embed_dims: 128
+n_layers: 3
+
+# For GT+DM
+check_interval: 10000
+num_val_samples: 1000
+num_test_samples: 10000
+num_metric_samples: 10000
+
+use_wandb: true
+num_eval_samples: 10000
+use_data_parallel: True
+
+# PTDM params
+max_samples_to_consider: 100000000
+warmup_steps: 10000
+data_path: "data/pt/lj55.pt"

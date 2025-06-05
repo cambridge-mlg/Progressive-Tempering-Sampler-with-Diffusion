@@ -1,0 +1,11 @@
+_target_: ptsd.net.model.EGNN_ALDP
+in_dim: 66
+hidden_dims: 128
+n_layers: 6
+t_embed_dims: 128
+atom_type_embedding_dim: 64
+n_particles: 22
+n_dimensions: 3
+skip_connect: true
+data_sigma: 0.168
+atom_type_class: "structure"

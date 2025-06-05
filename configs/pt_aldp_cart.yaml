@@ -1,0 +1,32 @@
+defaults:
+  - target: aldp_cart
+  - logger: wandb  # set "null" for no logging
+
+dim: ${target.dim}
+name: "aldp_cart"
+prefix: "pt"
+device: "cuda"
+seed: 42
+
+target:
+  device: ${device}
+
+aldp_config_path: "configs/aldp.yaml"
+
+temp_low: 1.0
+temp_high: 5.0
+total_n_temp: 5
+temp_schedule: "geom"  # or "linear"
+all_temps: null
+
+num_chains: 10
+num_steps: 1000000
+swap_interval: 200
+check_interval: 10000
+step_size: 0.0001
+plot_fold: "plots/pt"
+save_fold: "data/pt"
+model_save_path: "checkpoints/pt/${name}"
+num_samples_to_plot: 1000000
+num_samples_for_eval: 10000
+burn_in: 10000

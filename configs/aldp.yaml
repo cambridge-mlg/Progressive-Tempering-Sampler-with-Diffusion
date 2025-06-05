@@ -1,0 +1,67 @@
+defaults:
+  - net: mlp
+  - target: aldp
+  - logger: wandb  # set "null" for no logging
+
+dim: 60
+name: "aldp"
+device: "cuda"
+seed: 42
+
+target:
+  device: ${device}
+
+net:
+  in_dim: ${dim}
+  hidden_dims: 1024
+  t_embed_dim: 256
+  n_layers: 5
+  skip_connect: true
+
+temp_low: 1.0
+temp_high: 5.0
+total_n_temp: 10
+temp_schedule: "geom"  # or "linear"
+all_temps: null
+
+bsz: 1000
+init_Epochs: 50000
+Epochs: 50000
+learning_rate: 1e-3
+max_grad_norm: 1.0
+normalization: 1.0
+adaptive_data_sigma: False
+
+BUFFER_MAX_SIZE: 100000
+num_samples_to_generate_per_batch: 100000
+load_init_buffer: False
+swap_buffer_interval: 100
+init_LG_steps: 110000
+init_num_chains: 100
+init_num_abundance: 10000
+init_LG_pick_interval: 100
+LG_steps: 1000
+num_abundance: 999
+LG_pick_interval: 1
+LG_step_size: 0.0001
+
+importance_resample: True  # set this True for using IS-resampling
+is_integration_steps: 2000
+is_weight_max_quantile: 0.985
+is_last_step: False
+
+tmin: 0.001
+tmax: 40.0
+
+num_plot_samples: 100000  #  number of samples shown in the plots
+plot_fold: "plots/plot_${name}"
+
+model_save_path: "checkpoints/ptsd_${name}"
+
+hidden_dims: None
+t_embed_dims: None
+n_layers: None
+
+num_eval_samples: 1000000
+use_wandb: True
+use_data_parallel: True

@@ -1,0 +1,8 @@
+_target_: ptsd.targets.lennard_jones.LennardJonesPotential
+dim: 165
+n_particles: 55
+eps: 1.0
+rm: 1.0
+oscillator: true
+oscillator_scale: 1.0
+two_event_dims: false

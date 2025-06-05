@@ -1,0 +1,7 @@
+defaults:
+  - aldp
+
+_target_: ptsd.targets.aldp_cartesian.AldpPotentialCart
+transform: "cartesian"
+use_pt_data: False
+max_samples_for_data: 1e6

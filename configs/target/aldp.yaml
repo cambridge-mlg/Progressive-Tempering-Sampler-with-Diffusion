@@ -1,0 +1,11 @@
+_target_: ptsd.targets.aldp.AldpPotential
+data_path: ./data/aldp/position_min_energy.pt
+temperature: 300
+energy_cut: 1.e+8
+energy_max: 1.e+20
+n_threads: 32
+transform: internal
+ind_circ_dih: [0, 1, 2, 3, 4, 5, 8, 9, 10, 13, 15, 16]
+shift_dih: False
+env: implicit
+device: "cpu"
