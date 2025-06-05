@@ -8,9 +8,9 @@
 
 - [Installation](#installation)
 - [Running Experiments](#running-experiments)
-  - [1. Simulate Parallel Tempering (PT)](#1-simulate-parallel-tempering-pt)
-  - [2. Train PT+DM (Diffusion Matching)](#2-train-ptdm-diffusion-matching)
-  - [3. Train PTSD (Progressive Tempering Sampler with Diffusion)](#3-train-ptsd-progressive-tempering-sampler-with-diffusion)
+  - [1. Simulate PT](#1-simulate-parallel-tempering-pt)
+  - [2. Train PT+DM](#2-train-ptdm-diffusion-matching)
+  - [3. Train PTSD](#3-train-ptsd-progressive-tempering-sampler-with-diffusion)
 - [Tasks](#tasks)
 - [Citation](#citation)
 - [Contact](#contact)
