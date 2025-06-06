@@ -1,5 +1,7 @@
 # Progressive Tempering Sampler with Diffusion (PTSD)
 
+[![Paper](https://img.shields.io/badge/paper-arxiv.2410.12456-B31B1B.svg)](https://www.arxiv.org/abs/2506.05231)
+
 **Official implementation of "Progressive Tempering Sampler with Diffusion" (ICML 2025)**  
 
 > 🔬 This repository contains the code for PT simulation, PT+DM training, and PTSD training.
