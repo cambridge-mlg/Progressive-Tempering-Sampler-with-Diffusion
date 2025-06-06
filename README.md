@@ -74,11 +74,14 @@ We provide codes for following tasks
 If you find this work useful, please consider citing us:
 
 ```bibtex
-@inproceedings{YourICMLPaper2025,
-  title     = {Progressive Tempering Sampler with Diffusion},
-  author    = {Your Name and Co-authors},
-  booktitle = {Proceedings of the 42nd International Conference on Machine Learning},
-  year      = {2025}
+@misc{rissanen2025progressivetemperingsamplerdiffusion,
+      title={Progressive Tempering Sampler with Diffusion}, 
+      author={Severi Rissanen and RuiKang OuYang and Jiajun He and Wenlin Chen and Markus Heinonen and Arno Solin and José Miguel Hernández-Lobato},
+      year={2025},
+      eprint={2506.05231},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2506.05231}, 
 }
 ```
 
