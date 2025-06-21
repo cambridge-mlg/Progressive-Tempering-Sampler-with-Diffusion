@@ -1,4 +1,4 @@
-name: aldp
+name: ptsd
 channels:
   - defaults
   - conda-forge
