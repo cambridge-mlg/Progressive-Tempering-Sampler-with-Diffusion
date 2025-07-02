@@ -551,8 +551,9 @@ def main(cfg: DictConfig):
     target = hydra.utils.instantiate(cfg.target)
     os.makedirs(cfg.model_save_path, exist_ok=True)
     logger = setup_logging(cfg.model_save_path)
-    if cfg.TRAINING_SET_SIZE is None:
-        cfg.TRAINING_SET_SIZE = cfg.BUFFER_MAX_SIZE
+    if cfg.prefix != "pt":
+        if cfg.TRAINING_SET_SIZE is None:
+            cfg.TRAINING_SET_SIZE = cfg.BUFFER_MAX_SIZE
     if "prefix" not in cfg:
         main_ptsd(target, cfg)
     else:
