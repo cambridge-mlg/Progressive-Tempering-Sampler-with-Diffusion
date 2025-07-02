@@ -1,9 +1,9 @@
 defaults:
-  - target: aldp_cart
+  - target: aldp
   - logger: wandb  # set "null" for no logging
 
-dim: 66
-name: "aldp_cart"
+dim: 60
+name: "aldp"
 prefix: "pt"
 device: "cuda"
 seed: 42
