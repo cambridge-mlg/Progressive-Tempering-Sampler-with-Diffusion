@@ -47,7 +47,7 @@ python main.py --config-name=pt_gmm
 Train a diffusion model using the PT samples:
 
 ```bash
-python main.py --config-name=gmm prefix="ptdm"
+python main.py --config-name=gmm +prefix="ptdm"
 ```
 
 ### 3. Train PTSD
